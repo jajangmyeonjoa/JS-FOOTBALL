@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+    <link rel="stylesheet" href="static/Dobak/index.css">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@700&family=Noto+Sans:wght@900&display=swap" rel="stylesheet">
+</head>
+
+<body style="
+    font-family: 'Noto Sans', sans-serif;
+    font-family: 'Noto Sans KR', sans-serif;
+    background-color: black;
+    ">
+    <main style="
+    text-align: center;
+    color: white;
+    margin: 0;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    ">
+        <a href="/" style="
+        text-decoration: none;
+        color: inherit;
+        margin-top: 50px;
+        ">
+            <h1 style="font-size: 60px;">FB.JAMSIN.tk</h1>
+        </a>
+
+        <div style="
+                font-size: 40px;
+                position: relative;
+                width: 300px;
+                height: 60px;
+                background-color: rgb(255, 255, 255);
+                border-radius: 25px 25px 10px 10px;
+                text-align: center;
+                color: black;
+            ">
+            {{ match.match_title }}
+        </div>
+<br>
+
+<div style="font-size: 40px;">
+    누가 이길까?
+</div>
+
+<form action="{% url 'Dobak:vote' match.id %}" method="post">
+    {% csrf_token %}
+        {% for choice in match.choice_set.all %}
+        <div style="font-size: 30px;">
+            <input type="radio" name="choice" id="choice{{ forloop.counter }}" value="{{ choice.id }}" style="
+                border: 0px;
+                width: 30px;
+                height: 30px;
+                position: relative;
+            ">
+                {{ choice.choice_team }}
+            <br>
+        </div>
+        {% endfor %}
+        {% if error_message %}<p style="font-size: 30px; color: gray;">{{ error_message }}</p>{% endif %}
+<br>
+    <input type="submit" value="고르기" style="
+            width: 300px;
+            height: 60px;
+            background-color: rgb(255, 255, 255);
+            border-radius: 10px 10px 25px 25px;
+            font-size: 30px;
+            color: black;
+            font-family: 'Noto Sans KR', sans-serif;
+    ">
+
+</form>
+</main>
+</body>
+</html>

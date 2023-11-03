@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+    <link rel="stylesheet" href="static/Dobak/index.css">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@700&family=Noto+Sans:wght@900&display=swap" rel="stylesheet">
+</head>
+
+<body style="
+    font-family: 'Noto Sans', sans-serif;
+    font-family: 'Noto Sans KR', sans-serif;
+    background-color: black;
+    ">
+    <main style="
+    text-align: center;
+    color: white;
+    margin: 0;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    ">
+        <a href="/" style="
+        text-decoration: none;
+        color: inherit;
+        margin-top: 50px;
+        ">
+            <h1 style="font-size: 60px;">FB.JAMSIN.tk</h1>
+        </a>
+
+        <div style="
+            font-size: 40px;
+            position: relative;
+            width: 300px;
+            height: 60px;
+            background-color: rgb(255, 255, 255);
+            border-radius: 25px 25px 10px 10px;
+            text-align: center;
+            color: black;
+            margin-bottom: 10px;
+        ">{{ match.match_title }}
+        </div>
+
+<br>
+
+<div style="
+font-size: 30px;
+">
+    {% for choice in match.choice_set.all %}
+        {{ choice.choice_team }}은 현재 응원 {{ choice.votes }}번!<br>
+    {% endfor %}
+    <br>
+    <div style="background-color: rgb(22, 22, 22); border-radius: 10px 10px 10px 10px; height: 70px; padding-top: 20px;">
+        {% if match.choice_set.all.0.votes == match.choice_set.all.1.votes %}
+            막상막하!!
+        {% elif match.choice_set.all.0.votes > match.choice_set.all.1.votes %}
+            {{ match.choice_set.all.0 }}이 앞서는중..!
+        {% elif match.choice_set.all.0.votes < match.choice_set.all.1.votes %}
+            {{ match.choice_set.all.1 }}반이 앞서는중..!
+        {% endif %}
+    </div>
+</div>
+
+<br>
+
+<a href="{% url 'Dobak:detail' match.id %}" style="color: inherit; text-decoration: none;">
+    <div style="
+        font-size: 35px;
+        position: relative;
+        width: 300px;
+        height: 60px;
+        background-color: rgb(255, 255, 255);
+        border-radius: 10px 10px 25px 25px;
+        text-align: center;
+        color: black;
+    ">
+        한번 더 응원하기
+    </div>
+</a>
+
+</main>
+</body>
+</html>

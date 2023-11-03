@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+    <link rel="stylesheet" href="static/Dobak/index.css">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@700&family=Noto+Sans:wght@900&display=swap" rel="stylesheet">
+</head>
+
+<body style="
+    font-family: 'Noto Sans', sans-serif;
+    font-family: 'Noto Sans KR', sans-serif;
+    background-color: black;
+    ">
+    <main style="
+    text-align: center;
+    color: white;
+    margin: 0;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    ">
+        <a href="/" style="
+        text-decoration: none;
+        color: inherit;
+        margin-top: 50px;
+        ">
+            <h1 style="font-size: 60px;">FB.JAMSIN.tk</h1>
+        </a>
+        <div style="
+            font-size: 40px;
+            position: relative;
+            width: 300px;
+            height: 60px;
+            background-color: rgb(255, 255, 255);
+            border-radius: 25px 25px 10px 10px;
+            text-align: center;
+            color: black;
+            margin-bottom: 10px;
+        ">
+        응원할 경기
+        </div>
+<br>
+{% if latest_match_list %}
+    {% for match in latest_match_list %}
+        <a href="{% url 'Dobak:detail' match.id %}" style="text-decoration: none; color: inherit">
+            <div style="
+                border: 5px solid white;
+                border-radius: 10px 10px 10px 10px;
+                margin-bottom: 10px;
+                font-size: 27px;
+                height: 50px;
+                width: 290px;
+            ">
+                <div style="margin-top: 5px;">{{ match.match_title }} {{ match.pub_date|date:'m월d일' }}</div>
+            </div>
+        </a>
+    {% endfor %}
+{% else %}
+{% endif %}
+<br>
+        <div style="
+                font-size: 20px;
+                position: relative;
+                width: 300px;
+                height: 35px;
+                background-color: rgb(255, 255, 255);
+                border-radius: 10px 10px 25px 25px;
+                text-align: center;
+                color: rgb(200, 200, 200);
+            ">
+            Made By「YKK」
+        </div>
+</main>
+</body>
+</html>
