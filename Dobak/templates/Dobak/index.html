@@ -28,17 +28,17 @@
         color: inherit;
         margin-top: 50px;
         ">
-            <h1 style="font-size: 60px;">FB.JAMSIN.tk</h1>
+            <h1 style="font-size: 120px;">FB.JAMSIN.tk</h1>
         </a>
 
         <a href="select/", style="text-decoration: none;">
             <div style="
-                font-size: 40px;
+                font-size: 80px;
                 position: relative;
-                width: 300px;
-                height: 60px;
+                width: 600px;
+                height: 120px;
                 background-color: rgb(255, 255, 255);
-                border-radius: 25px 25px 10px 10px;
+                border-radius: 50px 50px 20px 20px;
                 text-align: center;
                 color: black;
             ">
@@ -46,9 +46,9 @@
             </div>
         </a>
 <br>
-        <div style="font-size: 30px;" >
+        <div style="font-size: 60px;" >
             예정된 경기
-            <div style="font-size: 25px;">
+            <div style="font-size: 50px; width: 600px;">
             {% for match in latest_match_list %}
                 <p>{{ match.match_title }} {{ match.pub_date|date:'m월 d일' }}</p>
             {% endfor %}
@@ -57,15 +57,16 @@
 <br>
         <div style="
             position: relative;
-            width: 250px;
-            height: 5px;
+            width: 500px;
+            height: 10px;
             background-color: rgb(255, 255, 255);
-            border-radius: 10px 10px 10px 10px;
+            border-radius: 20px 20px 20px 20px;
+            margin-top: -50px;
         "></div>
 <br>
-        <div style="font-size: 30px;">
+        <div style="font-size: 60px;">
             현재 득표 수
-            <div style="font-size: 20px;">
+            <div style="font-size: 50px; width: 600px; margin-top: -80px;">
             {% for match in latest_match_list %}
                 {% for choice in match.choice_set.all %}
                     {{ choice.choice_team }}: {{ choice.votes }}표
@@ -77,14 +78,15 @@
         </div>
 <br>
         <div style="
-                font-size: 20px;
+                font-size: 40px;
                 position: relative;
-                width: 300px;
-                height: 35px;
+                width: 600px;
+                height: 70px;
                 background-color: rgb(255, 255, 255);
-                border-radius: 10px 10px 25px 25px;
+                border-radius: 20px 20px 50px 50px;
                 text-align: center;
                 color: rgb(200, 200, 200);
+                top: -20px
             ">
             Made By「YKK」
         </div>

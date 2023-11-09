@@ -28,17 +28,17 @@
         color: inherit;
         margin-top: 50px;
         ">
-            <h1 style="font-size: 60px;">FB.JAMSIN.tk</h1>
+            <h1 style="font-size: 120px;">FB.JAMSIN.tk</h1>
         </a>
         <div style="
-            font-size: 40px;
-            position: relative;
-            width: 300px;
-            height: 60px;
-            background-color: rgb(255, 255, 255);
-            border-radius: 25px 25px 10px 10px;
-            text-align: center;
-            color: black;
+                font-size: 80px;
+                position: relative;
+                width: 600px;
+                height: 120px;
+                background-color: rgb(255, 255, 255);
+                border-radius: 50px 50px 20px 20px;
+                text-align: center;
+                color: black;
         ">
         응원할 경기
         </div>
@@ -47,20 +47,20 @@
     {% for match in latest_match_list %}
         <a href="{% url 'Dobak:detail' match.id %}" style="text-decoration: none; color: inherit">
             <div style="
-                font-size: 27px;
-                height: 60px;
-                width: 290px;
+                font-size: 54px;
+                height: 120px;
+                width: 580px;
             ">
                 <div style="padding-top: 10px">{{ match.match_title }} {{ match.pub_date|date:'m월d일' }}</div>
             </div>
             {% if not forloop.last %}
             <div style="
             position: relative;
-            left: 40px;
-            width: 220px;
-            height: 5px;
+            left: 80px;
+            width: 440px;
+            height: 10px;
             background-color: rgb(255, 255, 255);
-            border-radius: 10px 10px 10px 10px;
+            border-radius: 20px 20px 20px 20px;
             "></div>
             {% endif %}
         </a>
@@ -69,12 +69,12 @@
 {% endif %}
 <br>
         <div style="
-                font-size: 20px;
+                font-size: 40px;
                 position: relative;
-                width: 300px;
-                height: 35px;
+                width: 600px;
+                height: 70px;
                 background-color: rgb(255, 255, 255);
-                border-radius: 10px 10px 25px 25px;
+                border-radius: 20px 20px 50px 50px;
                 text-align: center;
                 color: rgb(200, 200, 200);
             ">
