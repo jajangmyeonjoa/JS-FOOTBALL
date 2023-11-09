@@ -26,7 +26,7 @@ SECRET_KEY = 'django-insecure-t*&!w6zbua#mc8!x6co7^0ea3&2-@g--(#@ju644jqa=n+t!bp
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ["localhost", "127.0.0.1", "fb.jamsin.tk"]
 
 
 # Application definition
