@@ -66,7 +66,7 @@
 <br>
         <div style="font-size: 60px;">
             현재 득표 수
-            <div style="font-size: 50px; width: 600px; margin-top: -80px;">
+            <div style="font-size: 50px; width: 600px; margin-top: 0px;">
             {% for match in latest_match_list %}
                 {% for choice in match.choice_set.all %}
                     {{ choice.choice_team }}: {{ choice.votes }}표
